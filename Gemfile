@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rake'
-gem 'rails', '5.0.2'
+gem 'rails', '5.1.0.rc2'
 
 gem 'pg'
 gem 'dalli' # NOTE: в конфиге мемкеша должна быть опция -I 16M
@@ -11,10 +11,8 @@ gem 'redis-namespace'
 gem 'slim-rails'
 gem 'coffee-rails'
 
-# gem 'sass-rails'
 gem 'sassc-rails'
 gem 'bourbon'
-# gem 'compass-rails'
 
 # turbolinks
 # events migration https://github.com/turbolinks/turbolinks/blob/master/src/turbolinks/compatibility.coffee
@@ -198,7 +196,6 @@ gem 'faye-websocket', '0.10.0' # не обновлять до 0.10.1 - лома�
 gem 'thin'
 
 # assets
-gem 'vuejs-rails'
 source 'https://rails-assets.org' do
   # gem 'rails-assets-moment'
   gem 'rails-assets-pikaday'
@@ -223,7 +220,4 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-nouislider'
   gem 'rails-assets-js-md5'
   gem 'rails-assets-uevent'
-
-  # it's time to experiment with a new tool
-  # gem 'rails-assets-vue'
 end

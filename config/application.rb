@@ -16,10 +16,6 @@ require_relative '../lib/named_logger'
 
 Dir['app/middleware/*'].each { |file| require_relative "../#{file}" }
 
-# require 'acts_as_voteable'
-# require 'open-uri'
-
-
 module Site
   DOMAIN = 'shikimori.org'
   NAME = 'Шикимори'
@@ -29,6 +25,9 @@ module Site
   DOMAIN_LOCALES = %i(ru en)
 
   class Application < Rails::Application
+    # Initialize configuration defaults for originally generated Rails version.
+    config.load_defaults 5.1
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

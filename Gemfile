@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rake'
+# gem 'rails', github: 'rails/rails', branch: '5-1-stable'
 gem 'rails', '5.1.0.rc2'
 
 gem 'pg'
@@ -123,7 +124,7 @@ group :development do
   gem 'letter_opener'
   gem 'mactag'
   #gem 'web-console'
-  gem 'better_errors'
+  gem 'better_errors', github: 'ellimist/better_errors', branch: 'master'
   gem 'binding_of_caller'
 
   # gem 'rack-mini-profiler'

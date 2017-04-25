@@ -23,7 +23,7 @@ Rails.application.configure do
       value_max_bytes: 1024 * 1024 * 128
     }
     config.public_file_server.headers = {
-      'Cache-Control' => 'public, max-age=172800'
+      'Cache-Control' => "public, max-age=#{2.days.seconds.to_i}"
     }
   else
     config.action_controller.perform_caching = false
@@ -33,11 +33,11 @@ Rails.application.configure do
 
   Dalli.logger = ActiveSupport::Logger.new(STDOUT)
 
-  # config.middleware.use TurboDev
   config.middleware.use I18n::JS::Middleware
 
-  # # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = true
+  # Don't care if the mailer can't send.
+  config.action_mailer.raise_delivery_errors = false
+
   config.action_mailer.delivery_method = :letter_opener
   config.action_mailer.perform_caching = false
 
@@ -46,8 +46,6 @@ Rails.application.configure do
 
   # Raise an error on page load if there are pending migrations.
   config.active_record.migration_error = :page_load
-
-  # config.active_record.logger = ActiveSupport::Logger.new('log/sql.log')
 
   # Debug mode disables concatenation and preprocessing of assets.
   # This option may cause significant delays in view rendering with a large
@@ -80,16 +78,5 @@ Rails.application.configure do
 
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
-  # config.file_watcher = ActiveSupport::EventedFileUpdateChecker
-
-  # Flog.configure do |config|
-    # # If this value is true, not format on cached query
-    # config.ignore_cached_query = false
-    # # If query duration is under this value, not format
-    # config.query_duration_threshold = 8.0
-    # # If key count of parameters is under this value, not format
-    # config.params_key_count_threshold = 4
-    # # If this value is true, nested Hash parameter is formatted coercively in any situation
-    # config.force_on_nested_params = false
-  # end
+  config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 end
